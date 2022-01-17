@@ -113,7 +113,8 @@ def rankings_hbar_plot(data2, out_fname):
         l = [] 
         res = []
         for i, val in enumerate(data):
-            l.append([i, int(val[1][:-2])])
+            if val[1] is not None:
+                l.append([i, int(val[1][:-2])])
         l = sorted(l, key = lambda x: x[1], reverse=True)
         for val in l:
             res.append([data2[val[0]][0][4:], data2[val[0]][1]])
@@ -191,8 +192,8 @@ def generate_all_plots(p_id, season):
     # add check to see if player not found in that season
     print(" --- Generating Plots --- ")
 
-    rink_im = "/Users/brendanartley/dev/Sports-Analytics/imgs/simple_rink_grey.jpg"
-
+    #rink_im = "/Users/brendanartley/dev/Sports-Analytics/imgs/simple_rink_grey.jpg"
+    rink_im = "./imgs/simple_rink_grey.jpg"
     goal_colors = ["#88B4AA", "#e0ddbd"]
     on_net_colors = ["#e0ddbd", "#77A6C0"]
 
